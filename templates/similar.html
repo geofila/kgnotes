@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{%  block mainContent %}
+
+    <div class="container-fluid col-8 col-md-10 col-sm-11 col-xs-11">
+        <h4 class="display-5 header4">Relevant texts for:</h4>
+        <div class="container-fluid">
+            <h5 class="font-italic text-justify">{{focused_text}}</h5>
+            <h5 class="display-5 d-inline">Filename: </h5><h5 class= "display-5 d-inline font-italic"> {{filename}}</h5>
+            <h5>Annotations:</h5>
+            {% for ann in annotations %}
+                <a class="display-5 font-italic" href="/search/{{ann}}">{{ann}}</a>,
+            {% endfor %}
+        </div>
+            <hr>
+            {% for block in scores %}
+            <div class="jumbotron">
+                <div class="d-flex justify-content-between">
+                    <p>From: {{block["filename"]}} </p>
+                    <button type="button" class="btn btn-link" onclick = 'showSimmilarAnnotationTextParams("{{block["filename"]}}", "{{block["text"]}}")'>find relevant
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </button>
+                </div>
+                <p>Annotated Text:</p>
+                <p class="font-italic text-justify">{{block["text"]}}</p>
+                <p>Combined With:
+                {% for anns in block["annotations"] %}
+                    <a href="/search/{{anns}}">{{anns}}</a>,
+                {% endfor %}
+                </p>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <br>
+    </div>
+
+{% endblock %}

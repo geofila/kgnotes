@@ -1,0 +1,47 @@
+<!-- Annotation Block for Text -->
+<div class="card" id="pdf_block" style = "height:70vh; overflow:auto;">
+    <div class="card-body text-justify">
+        <p class="card-text" type = "textArea" id="textArea">Select a trascript for annotation. . .</p>
+    </div>
+</div>
+<!-- End Annotation Block for Text -->
+
+
+
+<!-- Annotation Block for Video -->
+<div id = "video_block" style="display: none;">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-light" onclick="showAnnotationBlockVideo()">Annotate</button>
+        <button type="button" class="btn btn-light" onclick="flagVideo('start')">Flag Start</button>
+        <button type="button" class="btn btn-light" onclick="flagVideo('end')">Flag End</button>
+        <!-- <button type="button" class="btn btn-light" onclick="showHistory()">Show History</button> -->
+    </div>
+
+
+    <div id="annotationBlockVideo">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="label" placeholder="Annotations" aria-label="Annotations" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <span class="input-group-text" id="startTime">00:00</span>
+                <span class="input-group-text" id="endTime">--:--</span>
+            </div>
+        </div>
+        <textarea class="form-control" id="videoComment" placeholder = "Comments" rows="2"></textarea>
+        <button type="button" class="btn btn-light float-left" onclick="cancelAnnotationVideo()">Cancel</button>
+        <button type="button" class="btn btn-light float-right" onclick="saveAnnotationVideo()">Save</button>
+    </div>
+
+    <video controls id="video">
+        <source type="video/mp4">
+        <source type="video/ogg">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div class="card" id = "historyAnnotations" style = "height:20vh; overflow:auto; text-align: left; display:none;">
+        <div class="card-body text-justify" id="buttons">
+           <h5 class="card-title">Automatic Transcript</h5>
+           <!-- <p class="card-text" id="textArea"></p> -->
+        </div>
+    </div>
+</div>
+<!-- End Annotation Block for Video -->

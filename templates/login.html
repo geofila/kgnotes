@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{%  block mainContent %}
+
+<form action= "/login" method="Post">
+    <div class="container-fluid" id = "loginBox">
+            <h2 class="text-center">Log in</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" autocomplete="off" required="required" name="email">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" required="required" name="password">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" id = "loginButton">Log in</button>
+            </div>
+            <div class="clearfix">
+                <label class="pull-left checkbox-inline"><input type="checkbox" name="rememberMe"> Remember me</label>
+            </div>
+            {% if error %}
+            <p id = "loginError">The username or your password is not correct. Please check your email and password and try again.</p>
+            {% endif %}
+    </div>
+</form>
+
+<style>
+#loginBox{
+    max-width: 50%;
+    background-color: #F7F7F7;
+    border-radius: 1px;
+    border-bottom: 4px solid #1C5D8B;
+    padding: 40px;
+}
+
+#loginButton{
+    background-color: #1C5D8B;
+    border: 0px;
+    margin:auto;
+}
+
+#loginError{
+    color: red;
+    text-align: center;
+}
+
+</style>
+
+{% include "textAnnotationsUtils.html" %}
+
+{% endblock %}

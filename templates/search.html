@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{%  block mainContent %}
+
+    <div class="container-fluid col-8 col-md-10 col-sm-11 col-xs-11">
+        <h4 class="display-4">Results for: {{searchTerm}}</h4>
+        {% if error != "" %}
+            <p class="lead">{{error}}</p>
+        {% else %}
+            <hr>
+            <h4 class="display-5">Text Annotations</h4>
+
+            {% for textAnnotation in textAnnotations %}
+            <div class="jumbotron">
+                <div class="d-flex justify-content-between">
+                    <p>From: {{textAnnotation.filename}} </p>
+                    <button type="button" class="btn btn-link" onclick = 'showSimmilarAnnotationTextParams("{{textAnnotation.filename}}", "{{textAnnotation.text}}")'>find relevant
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </button>
+                </div>
+                <p>Annotated Text:</p>
+                <p class="font-italic text-justify">{{textAnnotation.text}}</p>
+                <p>Combined With:
+                {% for canns in combinedAnnotations[loop.index0] %}
+                    <a href="/search/{{canns}}">{{canns}}</a>,
+                {% endfor %}
+                </p>
+                <p class="font-italic text-justify">Comments: {{textComments[loop.index0]}}</p>
+                </div>
+            {% endfor %}
+            <hr>
+            <!-- <h4 class="display-5">Video Annotations</h4>
+            <hr> -->
+            <h4 class="display-5">Relevant Labels</h4>
+            {% for relevant_label in relevant_labels %}
+                <a class="display-5" href="/search/{{relevant_label}}">{{relevant_label}}</a>,
+            {% endfor %}
+            <hr>
+            <br>
+        {% endif %}
+    </div>
+
+{% endblock %}

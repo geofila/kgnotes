@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #1C5D8B !important; padding: 16px;">
+    <a class="navbar-brand" href="/">DigiGen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">About</a>
+            </li>
+            <li class="nav-item dropdown">
+                {% if "user_id" in session %}
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    User
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </li>
+            {% endif %}
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 shadow-none" id = "searchUriText" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn my-2 my-sm-0 shadow-none" id="searchButton" type="submit" onclick="searchUriButton()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+<br>
+
+
+<style>
+    #searchUriText{
+        background-color: rgba(0,0,0,0) !important;
+        border: none !important;
+        border-bottom: 1px solid #fff !important;
+        border-radius: 0px;
+        color: white !important;
+    }
+    #searchButton{
+        border: none !important;
+        color: white !important;
+    }
+
+    input[id^="searchUriText"]::-webkit-input-placeholder {
+        color: white;
+    }
+    input[id^="searchUriText"]::-moz-placeholder {
+      color: white;
+    }
+    input[id^="searchUriText"]:-ms-input-placeholder {
+      color: white;
+    }
+    input[id^="searchUriText"]:-moz-placeholder {
+      color: white;
+    }
+    .form-control:focus {
+      box-shadow: none !important;
+    }
+
+    .ui-menu .ui-menu-item a{
+        background: white !important;
+        border:none !important;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+    }
+
+    .ui-menu .ui-menu-item a:hover{
+        background: #3595f6 !important;
+        border:none !important;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+    }
+
+</style>
