@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
  	<meta charset="UTF-8">
-	<title>DigiGen</title>
+	<title>KGnotes</title>
     <link rel="shortcut icon" href= "{{ url_for('static', filename='images/icon.ico') }}"
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
@@ -38,12 +38,13 @@
     </footer>
 
 </body>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<!-- <script src='https://raw.githubusercontent.com/lucaong/jQCloud/master/jqcloud/jqcloud-1.0.4.js'></script> -->
-<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-<!-- <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script> -->
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+<script src="{{ url_for('static', filename='js/externaljs/jquery_min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/externaljs/jquery_ui.js') }}"></script>
+<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
+ <!--<script src='https://raw.githubusercontent.com/lucaong/jQCloud/master/jqcloud/jqcloud-1.0.4.js'></script>-->
+<link href="{{ url_for('static', filename='css/jquery_ui.css') }}" rel="Stylesheet"></link>
+ <!--<script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>-->
+<!--<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script src="{{ url_for('static', filename='js/wordCloud.js') }}"></script>
@@ -52,7 +53,5 @@
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 <script src="{{ url_for('static', filename='js/videoUtils.js') }}"></script>
 <script src="{{ url_for('static', filename='js/search.js') }}"></script>
-
 <script src='https://cdn.rawgit.com/mgalante/jquery.redirect/master/jquery.redirect.js'></script>
-
 </html>

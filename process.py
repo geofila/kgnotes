@@ -24,7 +24,7 @@ class TextAnnotation(db.Model):
 	timestamp = db.Column(db.DateTime, nullable=False, default= datetime.utcnow)
 
 	def __repr__(self):
-		return f"Text('{self.text}', '{self.annotation}', '{self.timestamp}')"
+	    return f"Text('{self.text}', '{self.annotation}', '{self.timestamp}')"
 
 class TextComment(db.Model):
 	filename = db.Column(db.Text, nullable=False, primary_key=True)
@@ -56,7 +56,7 @@ class VideoComment(db.Model):
 	timestamp = db.Column(db.DateTime, nullable=False, default= datetime.utcnow)
 
 	def __repr__(self):
-		return f"Text('{self.filename}', '{self.comment}', '{self.timestamp}')"
+	    return f"Text('{self.filename}', '{self.comment}', '{self.timestamp}')"
 
 
 
@@ -99,14 +99,15 @@ def read_transcript():
 	filename = request.form['filename']
 	if os.path.exists("static/transcripts/" + filename):
 		try:
-			response = load_transcript(filename)
 			session["filename"] = filename # save file name to session
+			response = load_transcript(filename)
 			return jsonify({'response' : response})
 		except Exception as e:
 			print (e)
 			return jsonify({"response": "An Error Occurred! Please try again or report the error to the administration!"})
 	else:
 		return jsonify({"response": "File Does not Exists! Please enter a valid filename!"})
+
 
 @app.route('/add_annotation', methods=['POST'])
 def add_annotation():
